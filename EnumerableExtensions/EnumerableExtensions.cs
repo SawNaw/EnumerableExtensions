@@ -2,6 +2,18 @@
 {
     public static class EnumerableExtensions
     {
+        /// <summary>
+        /// Splits a sequence into multiple sequences based on the given condition.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements in the collection.</typeparam>
+        /// <param name="source">The source collection to split.</param>
+        /// <param name="predicate">The condition describing the separating element.</param>
+        /// <returns>A collection containing the results of the split.</returns>
+        /// <example>
+        /// For a collection of integers {1, 3, 2, 0, 3, 6, 0, 3, 5}
+        /// myList.SplitBy(m => m != 0)
+        /// should return three collections containing {1, 3, 2}, {3, 6}, and {3, 5}
+        /// </example>
         public static IEnumerable<IEnumerable<TSource>> SplitBy<TSource>(this IEnumerable<TSource> source,
                                                                        Func<TSource, bool> predicate)
         {
